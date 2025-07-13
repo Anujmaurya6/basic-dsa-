@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neon BMI Calculator</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle, #111 40%, #000);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #0d0d0d;
+      border: 2px solid #00f0ff;
+      box-shadow: 0 0 25px #00f0ff, 0 0 40px #ff004f inset;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      width: 350px;
+      transition: 0.3s ease-in-out;
+    }
+
+    h2 {
+      color: #ff004f;
+      text-shadow: 0 0 10px #ff004f;
+      margin-bottom: 30px;
+    }
+
+    input[type="number"] {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      background-color: #222;
+      color: white;
+      font-size: 16px;
+      outline: none;
+      box-shadow: 0 0 10px #00f0ff;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      box-shadow: 0 0 20px #ff004f;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: transparent;
+      color: #00f0ff;
+      border: 2px solid #00f0ff;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px #00f0ff;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00f0ff;
+      color: #0d0d0d;
+      box-shadow: 0 0 20px #ff004f, 0 0 40px #00f0ff;
+    }
+
+    #result {
+      margin-top: 25px;
+      font-size: 18px;
+      color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .bmi-status {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>⚡ BMI Calculator</h2>
+    <input type="number" id="weight" placeholder="Enter weight in kg">
+    <input type="number" id="height" placeholder="Enter height in cm">
+    <button onclick="calculateBMI()">Calculate</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateBMI() {
+      const weight = parseFloat(document.getElementById("weight").value);
+      const heightCm = parseFloat(document.getElementById("height").value);
+      const resultBox = document.getElementById("result");
+
+      if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
+        resultBox.innerHTML = `<span style="color: #ff004f;">Please enter valid values!</span>`;
+        return;
+      }
+
+      const heightM = heightCm / 100;
+      const bmi = weight / (heightM * heightM);
+      let status = "";
+      let color = "";
+
+      if (bmi < 18.5) {
+        status = "Underweight";
+        color = "#00f0ff";
+      } else if (bmi < 24.9) {
+        status = "Normal weight";
+        color = "#00ff7f";
+      } else if (bmi < 29.9) {
+        status = "Overweight";
+        color = "#ffae00";
+      } else {
+        status = "Obese";
+        color = "#ff004f";
+      }
+
+      resultBox.innerHTML = `
+        <div>Your BMI is <strong style="color:${color}">${bmi.toFixed(2)}</strong></div>
+        <div class="bmi-status" style="color:${color}">(${status})</div>
+      `;
+    }
+  </script>
+</body>
+</html>
