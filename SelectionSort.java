@@ -1,31 +1,29 @@
 
 
 public class SelectionSort {
-    public static void selectionSort(int[] arr) {
-   
-        int n = arr.length;
-        
-        for(int i=0;i<n;i++){
-            int minIndex=i;
-        
-        for(int j=i+1;j<n;j++){
-            if(arr[j]<arr[minIndex]){
+    public static void main(String[] args) {
+        int [] arr={5,6,7,8,9,10};
+
+        for(int i=0;i<arr.length;i++){
+           int minIndex=i;
+
+           for(int j=i+1;j<arr.length;j++){
+            if(arr[i]<arr[minIndex]){
                 minIndex=j;
             }
-        }
-int temp=arr[i];
-arr[i]=arr[minIndex];
-arr[minIndex]=temp;
+            int temp=arr[i];
+            arr[i]=temp;
+            arr[i]=arr[minIndex];
+            arr[minIndex]=temp;
+           }
 
-    }    
-        for(int num:arr){
-            System.out.println("the array after selectionsorting is:"+num);
+           System.out.println("Selection Sort is:"+arr[i]);
+ 
+       
+           
         }
+    
     }
-    public static void main(String[] args) {
-             int [] arr={43,54,65,76,87,98,31};
-            selectionSort(arr);
-    } 
-    }
+}
     
 
