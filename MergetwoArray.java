@@ -1,18 +1,21 @@
 
-import java.util.Arrays;
 public class MergetwoArray {
     public static void main(String[] args) {
         
-    
-    int [] a={1,2,3};
-    int [] b={4,5,6};
-
+    int[]a={1,3,5,7};
+    int[]b={2,4,6,8,10};
     int [] merged=new int[a.length+b.length];
-  System.arraycopy(a, 0, merged, 0, a.length); // Copy first array
-  System.arraycopy(b, 0, merged, a.length, b.length); // Copy second array
 
-  Arrays.sort(merged);
-  System.out.println("Merged and sorted arrray are:"+Arrays.toString(merged));
+    for(int i=0;i<a.length;i++){
+      merged[i]=a[i];
+    }
 
+    for(int i=0;i<b.length;i++){
+      merged[b.length+1]=b[i];
+    }
+    System.out.println("Merged Array:");
+    for(int i=0;i<merged.length;i++){
+      System.out.println(""+merged[i]);
+    }
     }
 }

@@ -6,11 +6,13 @@ public class Duplicates2 {
 
        for(int i=0;i<arr.length;i++){
         for(int j=i+1;j<arr.length;j++){
-            if(arr[i]==arr[j]){
-                System.out.println("the duplicates are:"+arr[i]);
-            }
+    if(arr[i]==arr[j]){
+        System.out.println("The duplicates are:"+arr[i]);
+    }
         }
+       }
+
        }
     
     }
-}
+
