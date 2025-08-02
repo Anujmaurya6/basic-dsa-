@@ -1,15 +1,17 @@
-import java.util.HashSet;
+
+
 public class DuplicatesArray {
     public static void main(String[] args) {
-        int []arr={2,3,3,3,3,4,4,5,6,6,7,8,9,8,7,6,5,4,3,};
-HashSet<Integer> set=new HashSet<>();
-HashSet<Integer> duplicates=new HashSet<>();
+        int[] arr = {1, 2, 3, 4, 5, 6};
+        int [] arr2={7,8,9,10};
 
-for(int num:arr){
-    if(!set.add(num)){
-        duplicates.add(num);
+        int[] merged=new int[arr.length+arr2.length];
+
+        for(int i=0;i<arr.length;i++){
+            merged[i]=arr[i];
+        }
+        for(int i=0;i<arr.length;i++){
+            merged[arr.length+i]=arr2[i];
+        }
     }
-}
-System.out.println("The duplicates are:"+duplicates);
-
-    }}
+    }

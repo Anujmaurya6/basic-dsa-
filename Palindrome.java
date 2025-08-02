@@ -14,5 +14,11 @@ public class Palindrome {
             System.out.println("the String is not palindrome");
         }
     }
+    /*basically hum idhar stringbuilder ka use krke bhi kar skte he na..
+    or woh mera internally optimized he ,fast he,or bhi fayde he uske
+    StringBuilder sb = new StringBuilder(str);
+String reversed = sb.reverse().toString();
+
     
+     */
 }

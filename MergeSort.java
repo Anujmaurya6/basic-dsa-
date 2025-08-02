@@ -9,7 +9,7 @@ public class MergeSort {
             merge(array, left, mid, right);
         }
     }
-
+    
     public void merge(int[] array, int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;

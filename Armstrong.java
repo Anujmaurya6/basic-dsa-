@@ -21,7 +21,7 @@ public class Armstrong {
         int temp2 = num;
         while (temp2 > 0) {
             int digit = temp2 % 10;
-            sum += Math.pow(digit, digits);  // 💡 digit^digits
+            sum += (int)Math.pow(digit, digits);  // 💡 digit^digits
             temp2 = temp2 / 10;
         }
 
