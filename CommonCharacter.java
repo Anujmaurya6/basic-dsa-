@@ -10,9 +10,9 @@ public class CommonCharacter {
         }
         System.out.println("Common characters:");
         //check each character of second string
-        for(char c:str2.toCharArray()){
-            if(set1.contains(c)){
-                System.out.println(c+"");
+        for(char c2:str2.toCharArray()){
+            if(set1.contains(c2)){
+                System.out.println(c2+"");
             }
         }
     }

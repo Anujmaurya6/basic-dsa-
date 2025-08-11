@@ -1,17 +1,32 @@
 
-
+import java.util.*;
 public class DuplicatesArray {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6};
-        int [] arr2={7,8,9,10};
 
-        int[] merged=new int[arr.length+arr2.length];
-
-        for(int i=0;i<arr.length;i++){
-            merged[i]=arr[i];
+   
+        String s = "programming";
+        
+        // Step 1: Convert to char array
+        char[] chars = s.toCharArray();
+        
+        // Step 2: Use HashSet to track duplicates
+        Set<Character> uniqueChars = new HashSet<>();
+        Set<Character> duplicateChars = new HashSet<>();
+        
+        // Step 3: Identify duplicates
+        for (char c : chars) {
+            if (!uniqueChars.add(c)) { // add() returns false if already present
+                duplicateChars.add(c);
+            }
         }
-        for(int i=0;i<arr.length;i++){
-            merged[arr.length+i]=arr2[i];
+        
+        // Step 4: Count and print duplicates
+        for (char dup : duplicateChars) {
+            int count = 0;
+            for (char c : chars) {
+                if (c == dup) count++;
+            }
+            System.out.println(dup + "=" + count);
         }
     }
-    }
+}
